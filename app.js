@@ -1,4 +1,3 @@
-// import { readFile } from "fs/promises";
 import { createServer } from "http";
 import path from "path";
 import { json } from "stream/consumers";
@@ -49,7 +48,7 @@ const server = createServer(async (req, res) => {
                 return res.end(JSON.stringify(links));
         } else {
             const links = await loadlinks();
-            const shortCode = req.url.slice(1);
+            const shortCode = decodeURIComponent(req.url.slice(1));
             if(links[shortCode]){
                 res.writeHead(302,{location : links[shortCode]});
                 return res.end();

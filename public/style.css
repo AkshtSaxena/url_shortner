@@ -84,3 +84,9 @@ li a {
 li a:hover {
     text-decoration: underline;
 }
+
+#shortened-urls {
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%;
+}
